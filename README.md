@@ -1,5 +1,7 @@
 # MEWS COMMANDS
 
+This script enables some shortcuts for the Mews JS monorepo
+
 ## Available commands
 
 - `mews commander`: runs the Commander app
@@ -8,7 +10,7 @@
 - `mews storybook`: runs the Design System Storybook server
 - `mews pull-js`: updates the master branch of the Mews-JS monorepo
 
-## Want to use this?
+## I want to use this
 
 - Fork the repo to a folder of your choice in your computer
 - Modify the `MY_MEWS_JS_DIRECTORY_PATH` value in the `config` file, matching your directory path
