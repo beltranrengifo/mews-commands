@@ -12,6 +12,10 @@ function mews() {
   cd $MY_MEWS_JS_DIRECTORY_PATH
 
   case $1 in
+    $HI)
+      echo Hi there from Mews Commands!! 🤗
+      ;;
+
     $STORYBOOK)
       yarn workspace @mews-ui/storybook start
       ;;
