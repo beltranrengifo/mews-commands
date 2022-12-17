@@ -4,7 +4,7 @@ source $DIRECTORY/config.sh
 function mews() {
   if [[ ! " ${MEWS_AVAILABLE_COMMANDS[*]} " =~ " $1 " ]]
   then
-    echo -e $WARN_COLOR "\nCommand not found 🤷🏼‍♂️\nCurrent available Mews commands: $INFO_COLOR${MEWS_AVAILABLE_COMMANDS[*]}"
+    echo -e $WARN_COLOR "\nCommand not found! 🤷🏼‍♂️\nCurrently available Mews commands:\n$INFO_COLOR${MEWS_AVAILABLE_COMMANDS[*]}"
     return
   fi
 
@@ -13,7 +13,7 @@ function mews() {
 
   case $1 in
     $HI)
-      echo Hi there from Mews Commands!! 🤗
+      echo -e "\nHi there from Mews Commands!! 🤗\nAvailable commands:\n$INFO_COLOR${MEWS_AVAILABLE_COMMANDS[*]}"
       ;;
 
     $STORYBOOK)
