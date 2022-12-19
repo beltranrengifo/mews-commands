@@ -21,4 +21,4 @@ This commands run globally, from any directory you would be in.
   - `source ~/[my-path]/[my-folder]/mews-commands/mews.sh`
 - Reload the terminal session or open another one
 - Type `mews hi`, a greeting should appear in the terminal prompt
-- If so, all set! Please contribute with useful commands and shortcuts!
+- If so, all set! Please contribute with useful commands and shortcuts for Mews developers!
