@@ -31,6 +31,10 @@ function mews() {
       git checkout $currentBranch
       ;;
 
+    $DISTRIBUTOR)
+      title mews-$1
+      open "$BASE_DEV_URL/$DISTRIBUTOR_URL_PARAMS" && yarn workspace mews-$1 start
+      ;;
     *)
       title mews-$1
       yarn workspace mews-$1 start
