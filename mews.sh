@@ -1,5 +1,6 @@
 DIRECTORY="$(dirname $(realpath "$0"))"
 source $DIRECTORY/config.sh
+source $DIRECTORY/utils.sh
 
 function mews() {
   if [[ ! " ${MEWS_AVAILABLE_COMMANDS[*]} " =~ " $1 " ]]
@@ -17,6 +18,7 @@ function mews() {
       ;;
 
     $STORYBOOK)
+      title "mews-ui $STORYBOOK"
       yarn workspace @mews-ui/storybook start
       ;;
 
@@ -30,6 +32,7 @@ function mews() {
       ;;
 
     *)
+      title mews-$1
       yarn workspace mews-$1 start
       ;;
   esac
