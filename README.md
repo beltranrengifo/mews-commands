@@ -1,4 +1,4 @@
-# MEWS COMMANDS
+# MEWS JS COMMANDS
 
 This script enables some shortcuts for the Mews JS monorepo
 
