@@ -18,7 +18,7 @@ function mews() {
       ;;
 
     $STORYBOOK)
-      title "mews-ui $STORYBOOK"
+      title $STORYBOOK_TITLE
       yarn workspace @mews-ui/storybook start
       ;;
 
@@ -32,12 +32,17 @@ function mews() {
       ;;
 
     $DISTRIBUTOR)
-      title mews-$1
+      title $DISTRIBUTOR_TITLE
       open "$BASE_DEV_URL/$DISTRIBUTOR_URL_PARAMS" && yarn workspace mews-$1 start
       ;;
 
-    *)
-      title mews-$1
+    $NAVIGATOR)
+      title $NAVIGATOR_TITLE
+      yarn workspace mews-$1 start
+      ;;
+
+    $COMMANDER)
+      title $COMMANDER_TITLE
       yarn workspace mews-$1 start
       ;;
   esac

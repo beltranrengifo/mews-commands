@@ -18,3 +18,9 @@ PULL_JS="pull-js"
 HI="hi"
 # wrap commands in an array just for convenience
 MEWS_AVAILABLE_COMMANDS=($COMMANDER $NAVIGATOR $DISTRIBUTOR $STORYBOOK $PULL_JS $HI)
+
+# Window titles
+COMMANDER_TITLE="Mews Commander aka Mews Operations"
+NAVIGATOR_TITLE="Mews Navigator aka Guest Portal"
+DISTRIBUTOR_TITLE="Mews Distributor aka Booking Engine"
+STORYBOOK_TITLE="Mews UI Storybook"
