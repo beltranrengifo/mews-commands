@@ -10,6 +10,13 @@ This script enables some shortcuts for the Mews JS monorepo
 - `mews distributor`: runs the Distributor app and opens a new browser tab loading the URL mandatory params for the app to load properly
 - `mews storybook`: runs the Design System Storybook server
 - `mews pull-js`: updates the master branch of the Mews JS monorepo
+- `mews ts [workspace]`: runs ts command on selected workspace
+  - optimus
+  - commander: runs on core, backend-bridge and mews-commander
+  - navigator
+  - distributor
+  - framework
+  - all: run all previous
 
 This commands run globally, from any directory you would be in.
 

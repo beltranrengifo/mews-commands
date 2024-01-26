@@ -6,6 +6,8 @@ DISTRIBUTOR_URL_PARAMS="?location=https://api.mews-develop.com&ids=be054e6a-2e0b
 INFO_COLOR='\033[1;35m'
 NEUTRAL_TEXT_COLOR='\033[0;37m'
 WARN_COLOR='\033[1;33m'
+SUCCESS_COLOR='\033[1;32m'
+ERROR_COLOR='\033[1;31m'
 
 ## The available commands.
 ## Remember to add new commands here before modifying the `mews` function
@@ -16,8 +18,14 @@ DISTRIBUTOR="distributor"
 STORYBOOK="storybook"
 PULL_JS="pull-js"
 HI="hi"
+TS="ts"
+OPTIMUS="optimus"
+FRAMEWORK="framework"
+ALL="all"
+
 # wrap commands in an array just for convenience
-MEWS_AVAILABLE_COMMANDS=($COMMANDER $NAVIGATOR $DISTRIBUTOR $STORYBOOK $PULL_JS $HI)
+MEWS_AVAILABLE_COMMANDS=($COMMANDER $NAVIGATOR $DISTRIBUTOR $STORYBOOK $PULL_JS $HI $TS)
+TS_AVAILABLE_COMMANDS=($COMMANDER $NAVIGATOR $DISTRIBUTOR $OPTIMUS $FRAMEWORK $ALL)
 
 # Window titles
 COMMANDER_TITLE="Mews Commander aka Mews Operations"
