@@ -14,6 +14,7 @@ ERROR_COLOR='\033[1;31m'
 # as the new command should exist in the `MEWS_AVAILABLE_COMMANDS` array
 COMMANDER="commander"
 NAVIGATOR="navigator"
+NAVIGATOR_SB="navigator:sb"
 DISTRIBUTOR="distributor"
 STORYBOOK="storybook"
 PULL_JS="pull-js"
@@ -24,7 +25,7 @@ FRAMEWORK="framework"
 ALL="all"
 
 # wrap commands in an array just for convenience
-MEWS_AVAILABLE_COMMANDS=($COMMANDER $NAVIGATOR $DISTRIBUTOR $STORYBOOK $PULL_JS $HI $TS)
+MEWS_AVAILABLE_COMMANDS=($COMMANDER $NAVIGATOR $NAVIGATOR_SB $DISTRIBUTOR $STORYBOOK $PULL_JS $HI $TS)
 TS_AVAILABLE_COMMANDS=($COMMANDER $NAVIGATOR $DISTRIBUTOR $OPTIMUS $FRAMEWORK $ALL)
 
 # Window titles
@@ -32,3 +33,4 @@ COMMANDER_TITLE="Mews Commander aka Mews Operations"
 NAVIGATOR_TITLE="Mews Navigator aka Guest Portal"
 DISTRIBUTOR_TITLE="Mews Distributor aka Booking Engine"
 STORYBOOK_TITLE="Mews UI Storybook"
+NAVIGATOR_SB_TITLE="Mews Navigator Storybook"

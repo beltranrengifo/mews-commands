@@ -43,6 +43,11 @@ function mews() {
       yarn workspace mews-$1 start
       ;;
 
+    $NAVIGATOR_SB)
+      title $NAVIGATOR_SB_TITLE
+      yarn workspace @mews-navigator/storybook start
+      ;;
+
     $COMMANDER)
       title $COMMANDER_TITLE
       yarn workspace mews-$1 start
