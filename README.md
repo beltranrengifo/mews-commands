@@ -7,6 +7,7 @@ This script enables some shortcuts for the Mews JS monorepo
 - `mews hi`: welcomes you and reminds the available commands
 - `mews commander`: runs the Commander app
 - `mews navigator`: runs the Navigator app
+- `mews navigator:sb`: runs the Navigator Storybook app
 - `mews distributor`: runs the Distributor app and opens a new browser tab loading the URL mandatory params for the app to load properly
 - `mews storybook`: runs the Design System Storybook server
 - `mews pull-js`: updates the master branch of the Mews JS monorepo
