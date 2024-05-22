@@ -16,6 +16,7 @@ COMMANDER="commander"
 NAVIGATOR="navigator"
 NAVIGATOR_SB="navigator:sb"
 DISTRIBUTOR="distributor"
+DISTRIBUTOR_SB="distributor:sb"
 STORYBOOK="storybook"
 PULL_JS="pull-js"
 HI="hi"
@@ -25,12 +26,13 @@ FRAMEWORK="framework"
 ALL="all"
 
 # wrap commands in an array just for convenience
-MEWS_AVAILABLE_COMMANDS=($COMMANDER $NAVIGATOR $NAVIGATOR_SB $DISTRIBUTOR $STORYBOOK $PULL_JS $HI $TS)
+MEWS_AVAILABLE_COMMANDS=($COMMANDER $NAVIGATOR $NAVIGATOR_SB $DISTRIBUTOR $DISTRIBUTOR_SB $STORYBOOK $PULL_JS $HI $TS)
 TS_AVAILABLE_COMMANDS=($COMMANDER $NAVIGATOR $DISTRIBUTOR $OPTIMUS $FRAMEWORK $ALL)
 
 # Window titles
 COMMANDER_TITLE="Mews Commander aka Mews Operations"
 NAVIGATOR_TITLE="Mews Navigator aka Guest Portal"
 DISTRIBUTOR_TITLE="Mews Distributor aka Booking Engine"
+DISTRIBUTOR_SB_TITLE="Mews Distributor Storybook"
 STORYBOOK_TITLE="Mews UI Storybook"
 NAVIGATOR_SB_TITLE="Mews Navigator Storybook"

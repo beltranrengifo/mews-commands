@@ -38,6 +38,11 @@ function mews() {
       open "$BASE_DEV_URL/$DISTRIBUTOR_URL_PARAMS" && yarn workspace mews-$1 start
       ;;
 
+    $DISTRIBUTOR_SB)
+      title $DISTRIBUTOR_SB_TITLE
+      yarn workspace @mews-distributor/storybook start
+      ;;
+
     $NAVIGATOR)
       title $NAVIGATOR_TITLE
       yarn workspace mews-$1 start
