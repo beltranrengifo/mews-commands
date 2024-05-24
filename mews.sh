@@ -58,6 +58,10 @@ function mews() {
       yarn workspace mews-$1 start
       ;;
 
+    $OPTIMUS_TEST)
+      yarn workspace @optimus-web/core test
+      ;;
+
     $TS)
       if [[ ! " ${TS_AVAILABLE_COMMANDS[*]} " =~ " $2 " ]]
       then
