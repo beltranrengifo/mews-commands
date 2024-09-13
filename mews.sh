@@ -24,6 +24,16 @@ function mews() {
       yarn workspace @mews-ui/storybook start
       ;;
 
+    $STORYBOOK_B2B)
+      title $STORYBOOK_B2B_TITLE
+      yarn workspace @mews-b2b-ui/storybook start
+      ;;
+
+    $STORYBOOK_GX)
+      title $STORYBOOK_GX_TITLE
+      yarn workspace @mews-gx-ui/storybook start
+      ;;
+
     $PULL_JS)
       currentBranch=$(git symbolic-ref --short HEAD)
       echo -e $INFO_COLOR"Current branch is ${currentBranch}"${NEUTRAL_TEXT_COLOR}
