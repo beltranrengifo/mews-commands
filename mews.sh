@@ -3,10 +3,9 @@ source $DIRECTORY/config.sh
 source $DIRECTORY/utils.sh
 
 function mews() {
-  previousPath=`pwd`
+  previousPath=$(pwd)
 
-  if [[ ! " ${MEWS_AVAILABLE_COMMANDS[*]} " =~ " $1 " ]]
-  then
+  if [[ ! " ${MEWS_AVAILABLE_COMMANDS[*]} " =~ " $1 " ]]; then
     echo -e $WARN_COLOR "\nCommand not found! 🤷🏼‍♂️\nCurrently available Mews commands:\n$INFO_COLOR${MEWS_AVAILABLE_COMMANDS[*]}"
     cd $previousPath
     return
@@ -15,98 +14,98 @@ function mews() {
   cd $MY_MEWS_JS_DIRECTORY_PATH
 
   case $1 in
-    $HI)
-      echo -e "\nHi there from Mews Commands!! 🤗\nAvailable commands:\n$INFO_COLOR${MEWS_AVAILABLE_COMMANDS[*]}"
-      ;;
+  $HI)
+    echo -e "\nHi there from Mews Commands!! 🤗\nAvailable commands:\n$INFO_COLOR${MEWS_AVAILABLE_COMMANDS[*]}"
+    ;;
 
-    $STORYBOOK)
-      title $STORYBOOK_TITLE
-      yarn workspace @mews-ui/storybook start
-      ;;
+  $STORYBOOK)
+    title $STORYBOOK_TITLE
+    yarn workspace @mews-ui/storybook start
+    ;;
 
-    $STORYBOOK_B2B)
-      title $STORYBOOK_B2B_TITLE
-      yarn workspace @mews-b2b-ui/storybook start
-      ;;
+  $STORYBOOK_B2B)
+    title $STORYBOOK_B2B_TITLE
+    yarn workspace @mews-b2b-ui/storybook start
+    ;;
 
-    $STORYBOOK_GX)
-      title $STORYBOOK_GX_TITLE
-      yarn workspace @mews-gx-ui/storybook start
-      ;;
+  $STORYBOOK_GX)
+    title $STORYBOOK_GX_TITLE
+    yarn workspace @mews-gx-ui/storybook start
+    ;;
 
-    $PULL_JS)
-      currentBranch=$(git symbolic-ref --short HEAD)
-      echo -e $INFO_COLOR"Current branch is ${currentBranch}"${NEUTRAL_TEXT_COLOR}
-      git checkout master
-      git pull origin master
-      echo -e $INFO_COLOR"Checking out to previous branch ${currentBranch}"${NEUTRAL_TEXT_COLOR}
-      git checkout $currentBranch
-      ;;
+  $PULL_JS)
+    currentBranch=$(git symbolic-ref --short HEAD)
+    echo -e $INFO_COLOR"Current branch is ${currentBranch}"${NEUTRAL_TEXT_COLOR}
+    git checkout master
+    git pull origin master
+    echo -e $INFO_COLOR"Checking out to previous branch ${currentBranch}"${NEUTRAL_TEXT_COLOR}
+    git checkout $currentBranch
+    ;;
 
-    $DISTRIBUTOR)
-      title $DISTRIBUTOR_TITLE
-      open "$BASE_DEV_URL/$DISTRIBUTOR_URL_PARAMS" && yarn workspace mews-$1 start
-      ;;
+  $DISTRIBUTOR)
+    title $DISTRIBUTOR_TITLE
+    open "$BASE_DEV_URL/$DISTRIBUTOR_URL_PARAMS" && yarn workspace mews-$1 start
+    ;;
 
-    $DISTRIBUTOR_SB)
-      title $DISTRIBUTOR_SB_TITLE
-      yarn workspace @mews-distributor/storybook start
-      ;;
+  $DISTRIBUTOR_SB)
+    title $DISTRIBUTOR_SB_TITLE
+    yarn workspace @mews-distributor/storybook start
+    ;;
 
-    $NAVIGATOR)
-      title $NAVIGATOR_TITLE
-      yarn workspace mews-$1 start
-      ;;
+  $NAVIGATOR)
+    title $NAVIGATOR_TITLE
+    yarn workspace mews-$1 start
+    ;;
 
-    $NAVIGATOR_SB)
-      title $NAVIGATOR_SB_TITLE
-      yarn workspace @mews-navigator/storybook start
-      ;;
+  $NAVIGATOR_SB)
+    title $NAVIGATOR_SB_TITLE
+    yarn workspace @mews-navigator/storybook start
+    ;;
 
+  $COMMANDER)
+    title $COMMANDER_TITLE
+    yarn workspace mews-$1 start
+    ;;
+
+  $OPTIMUS_TEST)
+    yarn workspace @optimus-web/core test
+    ;;
+
+  $TS)
+    if [[ ! " ${TS_AVAILABLE_COMMANDS[*]} " =~ " $2 " ]]; then
+      echo -e $WARN_COLOR "\nTS command not found! 🤷🏼‍♂️\nCurrently available TS commands:\n$INFO_COLOR${TS_AVAILABLE_COMMANDS[*]}"
+      cd $previousPath
+      return
+    fi
+
+    echo -e $INFO_COLOR🛡️ " Typescript check on" $2 "workspace" 🛡️
+
+    case $2 in
+    $OPTIMUS)
+      yarn workspace @optimus-web/core typescript
+      ;;
     $COMMANDER)
-      title $COMMANDER_TITLE
-      yarn workspace mews-$1 start
+      yarn workspace @mews-commander/core typescript && yarn workspace @mews-commander/backend-renderers typescript && yarn workspace mews-commander typescript && yarn workspace @mews-commander/modules typescript
       ;;
-
-    $OPTIMUS_TEST)
-      yarn workspace @optimus-web/core test
+    $NAVIGATOR)
+      yarn workspace @mews-navigator/core typescript
       ;;
-
-    $TS)
-      if [[ ! " ${TS_AVAILABLE_COMMANDS[*]} " =~ " $2 " ]]
-      then
-        echo -e $WARN_COLOR "\nTS command not found! 🤷🏼‍♂️\nCurrently available TS commands:\n$INFO_COLOR${TS_AVAILABLE_COMMANDS[*]}"
-        cd $previousPath
-        return
-      fi
-
-      echo -e $INFO_COLOR🛡️ " Typescript check on" $2 "workspace" 🛡️
-
-      case $2 in
-        $OPTIMUS)
-          yarn workspace @optimus-web/core typescript
-          ;;
-        $COMMANDER)
-          yarn workspace @mews-commander/core typescript && yarn workspace @mews-commander/backend-bridge typescript && yarn workspace mews-commander typescript
-          ;;
-        $NAVIGATOR)
-          yarn workspace @mews-navigator/core typescript
-          ;;
-        $DISTRIBUTOR)
-          yarn workspace mews-distributor typescript
-          ;;
-        $FRAMEWORK)
-          yarn workspace @mews/framework typescript
-          ;;
-        $ALL)
-          yarn workspace @optimus-web/core typescript && yarn workspace @mews-commander/core typescript && yarn workspace @mews-commander/backend-bridge typescript && yarn workspace mews-commander typescript && yarn workspace @mews-navigator/core typescript && yarn workspace mews-distributor typescript && yarn workspace @mews/framework typescript
-          ;;
-        esac
-        if [ $? -eq 0 ]; then
-          echo -e $SUCCESS_COLOR"TS check succeeded"
-        else
-          echo -e $ERROR_COLOR"TS check failed"
-        fi
+    $DISTRIBUTOR)
+      yarn workspace mews-distributor typescript
+      ;;
+    $FRAMEWORK)
+      yarn workspace @mews/framework typescript
+      ;;
+    $ALL)
+      yarn workspace @optimus-web/core typescript && yarn workspace @mews-commander/core typescript && yarn workspace @mews-commander/modules typescript && yarn workspace @mews-commander/backend-renderers typescript && yarn workspace mews-commander typescript && yarn workspace @mews-navigator/core typescript && yarn workspace mews-distributor typescript && yarn workspace @mews/framework typescript && yarn workspace @mews/b2b-ui typescript && yarn workspace @mews/gx-ui typescript && yarn workspace ems-quotation typescript && yarn workspace ems-booking typescript && yarn workspace @mews-distributor/storybook typescript
+      ;;
+    esac
+    if [ $? -eq 0 ]; then
+      echo -e $SUCCESS_COLOR"TS check succeeded"
+    else
+      echo -e $ERROR_COLOR"TS check failed"
+    fi
+    ;;
   esac
 
   cd $previousPath
